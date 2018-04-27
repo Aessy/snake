@@ -1,79 +1,70 @@
-**Create a game**
-----
-  Create a new game. Player is registered and bound to a `game_id` returned in the response.
+# Snake
 
-* **URL**
+## Create Game
 
-  /create_game
+Create a new game. Player is registered and bound to `game` returned in the response.
 
-* **Method:**
-  
-  `POST`
-  
-* **Data Params**
-    None
-
-* **Success Response:**
-
-  Example:
-```json
-  {
-    "game_id":234,
-  }
-```
-  **Code:** 200
-
-**Refresh game board**
-----
-  Refresh the game board.
-
-* **URL**
-
-  /refresh
-
-* **Method:**
-  
-  `POST`
-  
-* **Data Params**
-
-  Example:
-```json
- {
-    "game_id":234,
-    "width":75,
-    "height":50,
-    "snake":[[5,6],[5,7],[5,8],[6,8]],
-    "food":[[1,2],[2,5]]
-  }
+### Request
+```http
+POST /games HTTP/1.1
 ```
 
-* **Success Response:**
+### Response
+```http
+HTTP/1.1 201 Created
+Location: https://snake.payex.com/games/b5d6fd66c28b4b4cab1729d48f5f72eb
 
-  **Code:** 200
-
-**Game Over**
-----
-  Game over
-
-* **URL**
-
-  /game_over
-
-* **Method:**
-  
-  `POST`
-  
-* **Data Params**
-
-  Example:
-```json
- {
-    "game_id":273473,
-    "score":1534
-  }
+{
+  "game": "https://snake.payex.com/games/b5d6fd66c28b4b4cab1729d48f5f72eb",
+  "states": "https://snake.payex.com/games/b5d6fd66c28b4b4cab1729d48f5f72eb/states"
+}
 ```
 
-* **Success Response:**
+## Refresh Game State
+Refresh the state of the game to update the position of the snake and food.
 
-  **Code:** 200
+### Request
+```http
+POST /games/b5d6fd66c28b4b4cab1729d48f5f72eb/states
+
+{
+  "state": "refresh",
+  "width": 75,
+  "height": 50,
+  "snake": [
+    { x: 5, y: 6 },
+    { x: 5, y: 7 },
+    { x: 5, y: 8 },
+    { x: 6, y: 8 }
+  ],
+  "food": [
+    { x: 1, y: 2 },
+    { x: 2, y: 5 }
+  ]
+}
+```
+
+### Response
+```http
+HTTP/1.1 201 Created
+Location: https://snake.payex.com/games/b5d6fd66c28b4b4cab1729d48f5f72eb/states/daa1ef6733db46dc9481a5270bf36d40
+```
+
+## Game Over
+Indicates that the game is over.
+
+### Request
+```http
+POST /games/b5d6fd66c28b4b4cab1729d48f5f72eb/states
+
+{
+  "state": "end",
+  "score": 1534,
+}
+```
+
+### Response
+```http
+HTTP/1.1 201 Created
+Location: https://snake.payex.com/games/b5d6fd66c28b4b4cab1729d48f5f72eb/states/end
+```

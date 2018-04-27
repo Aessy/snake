@@ -1,6 +1,6 @@
 **Create a game**
 ----
-  Create a new game. Player is registered and bound to the `game_id` returned in the response.
+  Create a new game. Player is registered and bound to a `game_id` returned in the response.
 
 * **URL**
 
@@ -19,7 +19,6 @@
 ```json
   {
     "game_id":234,
-    "player":"Ola Norman"
   }
 ```
   **Code:** 200

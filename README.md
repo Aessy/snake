@@ -7,6 +7,7 @@ Create a new game. Player is registered and bound to `game` returned in the resp
 ### Request
 ```http
 POST /games HTTP/1.1
+Authorization: Bearer 80a9414408574658b7702adac7b998cb
 ```
 
 ### Response
@@ -26,6 +27,7 @@ Refresh the state of the game to update the position of the snake and food.
 ### Request
 ```http
 POST /games/b5d6fd66c28b4b4cab1729d48f5f72eb/states
+Authorization: Bearer 80a9414408574658b7702adac7b998cb
 
 {
   "state": "refresh",
@@ -56,6 +58,7 @@ Indicates that the game is over.
 ### Request
 ```http
 POST /games/b5d6fd66c28b4b4cab1729d48f5f72eb/states
+Authorization: Bearer 80a9414408574658b7702adac7b998cb
 
 {
   "state": "end",

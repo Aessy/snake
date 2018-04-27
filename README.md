@@ -41,11 +41,11 @@
   Example:
 ```json
  {
-    game_id:234,
-    width:75,
-    height:50,
-    snake:[[5,6],[5,7],[5,8],[6,8]],
-    food:[[1,2],[2,5]]
+    "game_id":234,
+    "width":75,
+    "height":50,
+    "snake":[[5,6],[5,7],[5,8],[6,8]],
+    "food":[[1,2],[2,5]]
   }
 ```
 
@@ -70,8 +70,8 @@
   Example:
 ```json
  {
-    game_id:273473,
-    score:1534
+    "game_id":273473,
+    "score":1534
   }
 ```
 

@@ -8,6 +8,11 @@ Create a new game. Player is registered and bound to `game` returned in the resp
 ```http
 POST /games HTTP/1.1
 Authorization: Bearer 80a9414408574658b7702adac7b998cb
+
+{
+  "width": 75,
+  "height": 50 
+}
 ```
 
 ### Response
@@ -31,8 +36,7 @@ Authorization: Bearer 80a9414408574658b7702adac7b998cb
 
 {
   "state": "refresh",
-  "width": 75,
-  "height": 50,
+  "score": 123,
   "snake": [
     { "x": 5, "y": 6 },
     { "x": 5, "y": 7 },

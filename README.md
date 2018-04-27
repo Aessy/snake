@@ -18,8 +18,8 @@
   Example:
 ```json
   {
-    game_id:234,
-    player:"Ola Norman"
+    "game_id":234,
+    "player":"Ola Norman"
   }
 ```
   **Code:** 200
